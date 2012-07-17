@@ -77,8 +77,6 @@ function onload(){
 	  textFill: "green"
 	});
 
-    var lens = new Kinetic.Group();
-
     var rect = new Kinetic.Rect({
 				    x: 0,
 				    y: 0,
