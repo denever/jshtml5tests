@@ -8,7 +8,7 @@ function drawlens(x, y){
     ctx.shadowBlur=10;
     ctx.lineWidth=10;
     ctx.stroke();
-    ctx.closePath();    
+    ctx.closePath();
     ctx.beginPath();
     ctx.fillStyle = "#000000";
     ctx.arc(x+85, y-45, 20, 0, Math.PI*2, true);
@@ -16,20 +16,56 @@ function drawlens(x, y){
     ctx.shadowBlur=10;
     ctx.lineWidth=12;
     ctx.stroke();
-    ctx.closePath();    
+    ctx.closePath();
 }
 
 function onload(){
-    var c=document.getElementById("myCanvas");
-    var ctx=c.getContext("2d");
-    ctx.font="30px Arial";
-    ctx.fillText("News", 50, 100);
-    ctx.fillText("Works", 300, 120);
-    ctx.fillText("Contacts", 30, 350);
-    ctx.fillText("About", 400, 250);
-    drawlens(100,100);        
-}
+    var stage = new Kinetic.Stage({
+	  container: "container",
+	  width: 578,
+	  height: 200
+	});
+    var layer = new Kinetic.Layer();
 
-function onmouseover(x, y){
- 
+    var txt_news = new Kinetic.Text({
+	  x: 50,
+	  y: 100,
+	  text: "News",
+	  fontSize: 30,
+	  fontFamily: "Calibri",
+	  textFill: "green"
+	});
+
+    var txt_works = new Kinetic.Text({
+	  x: 300,
+	  y: 120,
+	  text: "Works",
+	  fontSize: 30,
+	  fontFamily: "Calibri",
+	  textFill: "green"
+	});
+
+    var txt_contacts = new Kinetic.Text({
+	  x: 190,
+	  y: 15,
+	  text: "Contacts",
+	  fontSize: 30,
+	  fontFamily: "Calibri",
+	  textFill: "green"
+	});
+
+    var txt_about = new Kinetic.Text({
+	  x: 400,
+	  y: 50,
+	  text: "About",
+	  fontSize: 30,
+	  fontFamily: "Calibri",
+	  textFill: "green"
+	});
+
+    layer.add(txt_news);
+    layer.add(txt_works);
+    layer.add(txt_contacts);
+    layer.add(txt_about);
+    stage.add(layer);
 }
