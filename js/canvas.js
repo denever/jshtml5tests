@@ -87,7 +87,7 @@ function onload(){
 				});
 
     var lens = new Kinetic.Shape({
-				     drawFunc: drawcircle,
+				     drawFunc: drawlens,
 				     x: 100,
 				     y: 50,
 //				     fill: "#00D2FF",
