@@ -32,6 +32,14 @@ function drawlens(){
     ctx.closePath();
 }
 
+function writeMessage(messageLayer, message) {
+    var context = messageLayer.getContext();
+    messageLayer.clear();
+    context.font = "18pt Calibri";
+    context.fillStyle = "black";
+    context.fillText(message, 10, 25);
+}
+
 function onload(){
     var stage = new Kinetic.Stage({
 				      container: "container",
@@ -40,6 +48,7 @@ function onload(){
 				  });
 
     var layer = new Kinetic.Layer();
+    var messageLayer = new Kinetic.Layer();
 
     var txt_news = new Kinetic.Text({
 	  x: 300,
@@ -96,12 +105,14 @@ function onload(){
 				 });
 
     rect.on("mousemove", function() {
-		lens.setPosition(stage.getMousePosition());
+		lens.setPosition(stage.getMousePosition())
+		var mousePos = stage.getMousePosition();
+		writeMessage(messageLayer, "x: " + mousePos.x + ", y: " + mousePos.y);
 		layer.draw();
 	    });
 
     txt_news.on("mouseover", function() {
-		    lens.fillText('News');
+		    txt_news.fontSize = '30px';
 		    console.log('News');
 		    });
     txt_works.on("mouseover");
@@ -114,5 +125,29 @@ function onload(){
     layer.add(txt_about);
     layer.add(rect);
     layer.add(lens);
+    stage.add(messageLayer);
     stage.add(layer);
+}
+
+function getMousePos(canvas, evt) {
+    // get canvas position
+    var obj = canvas;
+    var top = 0;
+    var left = 0;
+
+    while(obj && obj.tagName != 'BODY') {
+
+	top += obj.offsetTop;
+	left += obj.offsetLeft;
+	obj = obj.offsetParent;
+    }
+
+    // return relative mouse position
+    var mouseX = evt.clientX - left + window.pageXOffset;
+    var mouseY = evt.clientY - top + window.pageYOffset;
+    return {
+
+	x: mouseX,
+	y: mouseY
+    };
 }
