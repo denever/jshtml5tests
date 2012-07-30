@@ -39,7 +39,7 @@ function onload(){
 	    max: 1,
 	    step: 0.1,
 	    slide: function( event, ui ) {
-		$( "#about" ).fadeTo('fast', ui.value);
+		$( "#news" ).fadeTo('fast', ui.value);
 		}
 	    }
     );
@@ -50,7 +50,7 @@ function onload(){
 	    max: 1,
 	    step: 0.1,
 	    slide: function( event, ui ) {
-		$( "#about" ).fadeTo('fast', ui.value);
+		$( "#fashion" ).fadeTo('fast', ui.value);
 		}
 	    }
     );
@@ -61,7 +61,7 @@ function onload(){
 	    max: 1,
 	    step: 0.1,
 	    slide: function( event, ui ) {
-		$( "#about" ).fadeTo('fast', ui.value);
+		$( "#special" ).fadeTo('fast', ui.value);
 		}
 	    }
     );
