@@ -45,6 +45,23 @@
 
 .footer {
     position: absolute;
-    margin-top: 100%;
-    margin-botton: 0px;
+    margin-top: 70%;
 }
+
+.newstitle {
+    font-style: italic;
+    display: block;
+}
+
+.newsbody {
+}
+
+.contentheader {
+    font-size: 24px;
+    font-style: italic;
+    margin-left: 50%;
+    }
+
+.contentbody {
+    font-size: 14px;
+    }
